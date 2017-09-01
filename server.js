@@ -10,21 +10,27 @@ const koop = new Koop()
 const provider = require('./')
 koop.register(provider)
 
-// Start listening for HTTP traffic
-const config = require('config')
-// Set port for configuration or fall back to default
-const port = config.port || 8080
-koop.server.listen(port)
+if(process.env.DEPLOY == "dev") {
 
-const message = `
+  // Start listening for HTTP traffic
+  const config = require('config')
+  // Set port for configuration or fall back to default
+  const port = config.port || 8080
+  koop.server.listen(port)
 
-Koop geojson Provider listening on ${port}
-For more docs visit: https://koopjs.github.io/docs/specs/provider/
-To find providers visit: https://www.npmjs.com/search?q=koop+provider
+  const message = `
 
-Try it out in your browser: http://localhost:${port}/geojson/FeatureServer/0/query
-Or on the command line: curl --silent http://localhost:${port}/geojson/FeatureServer/0/query?returnCountOnly=true
+  Koop Walmart Provider listening on ${port}
+  For more docs visit: https://koopjs.github.io/docs/specs/provider/
+  To find providers visit: https://www.npmjs.com/search?q=koop+provider
 
-Press control + c to exit
-`
-console.log(message)
+  Try it out in your browser: http://localhost:${port}/walmart/FeatureServer/0/query
+  Or on the command line: curl --silent http://localhost:${port}/walmart/FeatureServer/0/query?returnCountOnly=true
+
+  Press control + c to exit
+  `
+  console.log(message)
+
+} else {
+  module.exports = koop.server
+}
