@@ -10,7 +10,7 @@ const provider = {
   type: 'provider',
   name: 'geojson',
   hosts: true,
-  disableIdParam: false,
+  disableIdParam: true,
   Controller: require('./controller'),
   Model: require('./model'),
   routes: require('./routes'),
