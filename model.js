@@ -13,8 +13,9 @@ function Model (koop) {}
 // This is the only public function you need to implement
 Model.prototype.getData = function (req, callback) {
   // convert gist.github.com|id|6de6fe4ccdea85b8.geojson
-  let url = req.params.host.replace(/\|/g,'/');
+  let url = req.params.id.replace(/\|/g,'/');
 
+  // Available parameters:
   // req.params.host
   // req.params.id
   // req.params.layer
