@@ -13,10 +13,10 @@ where the `URL` changes `/` to `|` for including in the url. e.g.
 
 To try this out, here are few example services:
 
-- [Harvey crowdsource data](https://www.arcgis.com/home/webmap/viewer.html?url=https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/web.fulcrumapp.com%7Cshares%7C6de6fe4ccdea85b8.geojson/FeatureServer/0)
-- [DC boundary](https://www.arcgis.com/home/webmap/viewer.html?url=https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/raw.githubusercontent.com|unitedstates|districts|gh-pages|states|DC|shape.geojson/FeatureServer/0)
-
-
+- [Harvey crowdsource data](https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/web.fulcrumapp.com%7Cshares%7C6de6fe4ccdea85b8.geojson/FeatureServer/0) & [map](https://www.arcgis.com/home/webmap/viewer.html?url=https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/web.fulcrumapp.com%7Cshares%7C6de6fe4ccdea85b8.geojson/FeatureServer/0)
+- [DC boundary](https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/raw.githubusercontent.com|unitedstates|districts|gh-pages|states|DC|shape.geojson/FeatureServer/0) & [map](https://www.arcgis.com/home/webmap/viewer.html?url=https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/raw.githubusercontent.com|unitedstates|districts|gh-pages|states|DC|shape.geojson/FeatureServer/0)
+- [US Boundaries](https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/eric.clst.org|wupl|Stuff|gz_2010_us_outline_500k.json/FeatureServer/0) &  [map](http://www.arcgis.com/home/webmap/viewer.html?url=https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/eric.clst.org|wupl|Stuff|gz_2010_us_outline_500k.json/FeatureServer/0)
+- [US Counties](https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/eric.clst.org|wupl|Stuff|gz_2010_us_050_00_500k.json/FeatureServer/0) & [map](http://www.arcgis.com/home/webmap/viewer.html?extent=-120.20,30.055,-117.19,40.06&url=https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/eric.clst.org|wupl|Stuff|gz_2010_us_050_00_500k.json/FeatureServer/0)
 
 If you want to write your own provider, simply fork this repository or copy the contents.
 

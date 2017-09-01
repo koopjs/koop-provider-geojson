@@ -23,11 +23,18 @@ Model.prototype.getData = function (req, callback) {
 
   request(`http://${url}`, (err, res, body) => {
     if (err) return callback(err)
-
     // translate the response into geojson
     const geojson = translate(body)
     // Cache data for 10 seconds at a time by setting the ttl or "Time to Live"
     geojson.ttl = 10
+
+
+    if(geojson.metadata === undefined || geojson.metadata === null) {
+      geojson.metadata = {};
+    }
+    geojson.metadata.title = "Koop GeoJSON"
+    geojson.metadata.description = `Data from ${url}`;
+
     // hand off the data to Koop
     callback(null, geojson)
   })
@@ -39,9 +46,24 @@ function translate (input) {
   // GeoJSON can just be the geometry
   if( input.type === undefined || input.type === null || input.type != "FeatureCollection" ) {
 
+    let geometry = 'Point';
+    switch(input.type) {
+      case 'LineString':
+        geometry = 'Polyline';
+        break;
+      case 'MultiPolygon':
+        geometry = 'Polygon';
+        break;
+      default:
+        geometry = input.type;
+    }
+
     return {
       type: 'FeatureCollection',
-      features: [ formatFeature(input) ]
+      features: [ formatFeature(input) ],
+      metadata: {
+        geometryType: geometry
+      }
     }
   } else {
 
