@@ -29,13 +29,38 @@ Model.prototype.getData = function (req, callback) {
     // Cache data for 10 seconds at a time by setting the ttl or "Time to Live"
     geojson.ttl = 10
     // hand off the data to Koop
-    callback(null, body)
+    callback(null, geojson)
   })
 }
 
 // GeoJSON to GeoJSON
 function translate (input) {
-  return input
+
+  // GeoJSON can just be the geometry
+  if( input.type === undefined || input.type === null || input.type != "FeatureCollection" ) {
+
+    return {
+      type: 'FeatureCollection',
+      features: [ formatFeature(input) ]
+    }
+  } else {
+
+    // Or it's a feature collection
+    return input;
+  }
+}
+
+function formatFeature (geometry) {
+
+  const feature = {
+    type: 'Feature',
+    properties: {
+      "type": geometry.type
+    },
+    geometry: geometry
+  }
+
+  return feature
 }
 
 module.exports = Model

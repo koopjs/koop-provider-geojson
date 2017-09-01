@@ -24,8 +24,8 @@ if(process.env.DEPLOY == "dev") {
   For more docs visit: https://koopjs.github.io/docs/specs/provider/
   To find providers visit: https://www.npmjs.com/search?q=koop+provider
 
-  Try it out in your browser: http://localhost:${port}/walmart/FeatureServer/0/query
-  Or on the command line: curl --silent http://localhost:${port}/walmart/FeatureServer/0/query?returnCountOnly=true
+  Try it out in your browser: http://localhost:${port}/geojson/FeatureServer/0/query
+  Or on the command line: curl --silent http://localhost:${port}/geojson/FeatureServer/0/query?returnCountOnly=true
 
   Press control + c to exit
   `

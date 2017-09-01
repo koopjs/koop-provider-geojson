@@ -5,7 +5,18 @@
 
 This is a geojson that demonstrates how to build a Koop Provider. Full documentation is provided [here](https://koopjs.github.io/docs/specs/provider/).
 
-The data source in this case is the [TriMet Bus API](https://developer.trimet.org). You can see this provider in action [here](http://dcdev.maps.arcgis.com/home/item.html?id=2603e7e3f10742f78093edf8ea2adfd8#visualize).
+`/geojson/{url|pipe|path}/FeatureServer/0/query`
+
+where the `URL` changes `/` to `|` for including in the url. e.g.
+
+`example.com%7Cshares%7C6de6fe4ccdea85b8.geojson`
+
+To try this out, here are few example services:
+
+- [Harvey crowdsource data](https://www.arcgis.com/home/webmap/viewer.html?url=https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/web.fulcrumapp.com%7Cshares%7C6de6fe4ccdea85b8.geojson/FeatureServer/0)
+- [DC boundary](https://www.arcgis.com/home/webmap/viewer.html?url=https://howtfcbn0c.execute-api.us-east-1.amazonaws.com/latest/geojson/raw.githubusercontent.com|unitedstates|districts|gh-pages|states|DC|shape.geojson/FeatureServer/0)
+
+
 
 If you want to write your own provider, simply fork this repository or copy the contents.
 
@@ -25,7 +36,7 @@ If you want to write your own provider, simply fork this repository or copy the 
 ## Test it out
 Run server:
 - `npm install`
-- `npm start`
+- `DEPLOY=dev node server.js`
 
 Example API Query:
 - `curl localhost:8080/geojson/FeatureServer/0/query?returnCountOnly=true`
