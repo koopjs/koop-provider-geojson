@@ -35,6 +35,7 @@ Model.prototype.getData = function (req, callback) {
     geojson.metadata.title = "Koop GeoJSON"
     geojson.metadata.description = `Data from ${url}`;
 
+    console.log("Geojson", geojson)
     // hand off the data to Koop
     callback(null, geojson)
   })
@@ -43,9 +44,11 @@ Model.prototype.getData = function (req, callback) {
 // GeoJSON to GeoJSON
 function translate (input) {
 
+  // console.log("input", input)
   // GeoJSON can just be the geometry
   if( input.type === undefined || input.type === null || input.type != "FeatureCollection" ) {
 
+    console.log("input", input.type)
     let geometry = 'Point';
     switch(input.type) {
       case 'LineString':
@@ -60,27 +63,47 @@ function translate (input) {
 
     return {
       type: 'FeatureCollection',
-      features: [ formatFeature(input) ],
+      features: [formatFeature(input)],
       metadata: {
         geometryType: geometry
       }
     }
   } else {
-
+    const features = [];
+    input.features.map((feature) => {
+      features.push(formatFeature(feature))
+    })
     // Or it's a feature collection
-    return input;
+    return {
+      type: 'FeatureCollection',
+      features: [features]
+    }
   }
 }
 
-function formatFeature (geometry) {
-
-  const feature = {
-    type: 'Feature',
-    properties: {
-      "type": geometry.type
-    },
-    geometry: geometry
+function formatFeature (input) {
+  let feature = {};
+  if(input.type == "Feature") {
+    feature = input;
+    if(feature.geometry === undefined || feature.geometry === null) {
+      feature.geometry = {
+        type: "Point",
+        coordinates: [ 0, 0]
+      }
+    }
+  } else {
+    feature = {
+      type: 'Feature',
+      properties: {
+        type: 'no location'
+      }
+    }
+    if(input !== undefined && input !== null) {
+      feature.properties.type = input.type;
+      feature.geometry = geometry;
+    }
   }
+
 
   return feature
 }
