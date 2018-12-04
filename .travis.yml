@@ -5,8 +5,8 @@ node_js:
   - 10
 sudo: false # Enable docker-based containers
 cache:
-directories: # Cache dependencies
+  directories: # Cache dependencies
     - node_modules
 
 script:
-- npm test
+  - npm test
