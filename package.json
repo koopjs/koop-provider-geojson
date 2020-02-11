@@ -14,7 +14,7 @@
     "aws-serverless-express": "^3.0.2",
     "config": "^1.25.1",
     "koop": "^3.4.0",
-    "request": "^2.79.0"
+    "request": "2.88.0"
   },
   "author": "Daniel Fenton",
   "license": "Apache-2.0",
