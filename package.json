@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "aws-serverless-express": "^3.0.2",
-    "config": "^1.25.1",
+    "config": "^3.3.1",
     "koop": "^3.4.0",
     "request": "^2.79.0"
   },
