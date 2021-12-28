@@ -1,0 +1,20 @@
+name: commit-check
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test:
+    name: test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: setup node
+      uses: actions/setup-node@v1
+    - name: install dependencies
+      run: npm install
+    - name: test
+      run: npm test

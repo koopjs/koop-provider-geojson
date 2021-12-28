@@ -3,26 +3,21 @@
   "version": "1.0.0",
   "description": "A geojson provider for koop",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "start": "node server.js",
-    "test": "standard && tape test/*.js | tap-spec"
+    "test": "standard",
+    "lint:fix": "standard --fix"
   },
   "dependencies": {
-    "aws-serverless-express": "^3.0.2",
-    "config": "^1.25.1",
+    "config": "^2.0.0",
     "koop": "^3.4.0",
     "request": "^2.79.0"
   },
   "author": "Daniel Fenton",
   "license": "Apache-2.0",
   "devDependencies": {
-    "nock": "^9.0.2",
-    "standard": "^12.0.0",
-    "tap-spec": "^4.1.1",
-    "tape": "^4.6.3"
+    "aws-serverless-express": "^3.0.2",
+    "standard": "^12.0.0"
   },
   "repository": {
     "type": "git",
