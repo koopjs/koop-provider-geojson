@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/koopjs/koop-provider-geojson.svg?branch=master)](https://travis-ci.org/koopjs/koop-provider-geojson) [![Greenkeeper badge](https://badges.greenkeeper.io/koopjs/koop-provider-geojson.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/koopjs/koop-provider-geojson.svg?branch=master)](https://travis-ci.org/koopjs/koop-provider-geojson)
 
 
 # Koop geojson Provider
