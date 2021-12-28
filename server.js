@@ -10,8 +10,7 @@ const koop = new Koop()
 const provider = require('./')
 koop.register(provider)
 
-if(process.env.DEPLOY == "dev") {
-
+if (process.env.DEPLOY === 'dev') {
   // Start listening for HTTP traffic
   const config = require('config')
   // Set port for configuration or fall back to default
@@ -30,7 +29,6 @@ if(process.env.DEPLOY == "dev") {
   Press control + c to exit
   `
   console.log(message)
-
 } else {
   module.exports = koop.server
 }
