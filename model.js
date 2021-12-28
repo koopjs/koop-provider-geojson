@@ -20,7 +20,7 @@ Model.prototype.getData = function (req, callback) {
   // req.params.layer
   // req.params.method
 
-  request(`http://${url}`, (err, res, body) => {
+  request(`https://${url}`, (err, res, body) => {
     if (err) return callback(err)
     // translate the response into geojson
     const geojson = translate(body)
