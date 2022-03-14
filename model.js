@@ -22,6 +22,8 @@ Model.prototype.getData = function (req, callback) {
 
   request(`http://${url}`, (err, res, body) => {
     if (err) return callback(err)
+    // parse the input in a case that it's not a valid JSON. may need to sanitize the input so that we won't parse the valid JSON and brake it
+    body = JSON.parse(body);
     // translate the response into geojson
     const geojson = translate(body)
     // Cache data for 10 seconds at a time by setting the ttl or "Time to Live"
